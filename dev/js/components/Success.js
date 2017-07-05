@@ -14,7 +14,7 @@ class Success extends Component{
                          <center><h4>Please check your email <b>{this.props.fieldValues.email}</b> for a confirmation link to activate your account.</h4></center>
                          </div>
                       </form>
-                    </div>
+                   </div>
               </div>
             </div>
         </div>
@@ -22,7 +22,6 @@ class Success extends Component{
   }
 }
 
-const mapStateToProps = (state) => {
-	return {fieldValues:state}
-}
+const mapStateToProps = (state) => {return {fieldValues:state}}
+
 export default connect(mapStateToProps,null)(Success);
