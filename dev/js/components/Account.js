@@ -3,21 +3,16 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {saveRecord} from '../actions';
 import Bootstrap from 'bootstrap/dist/css/bootstrap.css';
-import {Panel} from 'react-bootstrap';
+//import {Panel} from 'react-bootstrap';
 
  class Account extends Component{
 
   nextStep(e) {
     e.preventDefault()
-
-    var data = {
-      name     : this.refs.name.value,
-      password : this.refs.password.value,
-      email    : this.refs.email.value,
-    }
-
+    var data = {name: this.refs.name.value, password : this.refs.password.value, email : this.refs.email.value }
     this.props.saveRecord(data);
   }
+  
   render() {
     return (
       <div className="container">
@@ -54,9 +49,8 @@ import {Panel} from 'react-bootstrap';
                           <div className="col-sm-2" ></div>
                                <div className="col-md-6">
                                  <input type="submit" className="btn btn-primary" onClick={this.nextStep.bind(this)} value="Save & Continue"/>
-                                </div>
+                               </div>
                          </div><br/>
-   
                       </form>
                     </div>
               </div>
@@ -65,12 +59,10 @@ import {Panel} from 'react-bootstrap';
       )
   }
 }
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({saveRecord},dispatch);
-}
 
-const mapStateToProps = (state) =>{
-  return {fieldValues:state}
-}
+const mapDispatchToProps = (dispatch) => { return bindActionCreators({saveRecord},dispatch)}
+
+const mapStateToProps = (state) =>{ return {fieldValues:state}}
+
 export default connect(mapStateToProps,mapDispatchToProps)(Account);
 
